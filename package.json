@@ -1,7 +1,7 @@
 {
-  "name": "react-redux-starter-kit",
-  "version": "3.0.1",
-  "description": "Get started with React, Redux, and React-Router!",
+  "name": "haos-photobooth",
+  "version": "1.0.0",
+  "description": "A Photobooth that integrates with a Canon DSLR and a Photo Printer",
   "main": "index.js",
   "scripts": {
     "clean": "rimraf dist",
