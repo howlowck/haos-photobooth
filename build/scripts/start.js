@@ -59,7 +59,9 @@ function wipePhotos () {
 
   let files = fs.readdirSync(directory)
   for (const file of files) {
-    fs.unlinkSync(path.join(directory, file))
+    if (file !== '.gitkeep') {
+      fs.unlinkSync(path.join(directory, file))
+    }
   }
 }
 
