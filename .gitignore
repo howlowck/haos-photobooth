@@ -1,0 +1,12 @@
+.DS_STORE
+*.log
+node_modules
+dist
+coverage
+.idea/
+.yarn-cache
+public/photos/*.JPG
+public/printouts/*.jpg
+.env
+logo.jpg
+logo-wedding.jpg

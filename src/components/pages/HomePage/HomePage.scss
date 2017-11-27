@@ -1,0 +1,24 @@
+.base {
+  display:flex;
+  flex-direction: row;
+}
+.cameraFeed {
+  flex-grow: 1;
+}
+.photoStrip {
+  width: 300px;
+}
+
+.startButton {
+  margin-top: 100px;
+}
+
+.cameraFeedPosition {
+  margin-top: 50px;
+  margin-left: 100px;
+}
+
+.restartButton {
+  margin-left: 30px;
+  margin-top: 100px;
+}

@@ -1,0 +1,32 @@
+.base {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  width: 1000px;
+
+  h3 {
+    font-size: 30px;
+  }
+
+  i {
+    font-size: 60px;
+  }
+
+  & > div {
+    border: 1px solid rgba(255,255, 255, 0.5);
+    padding: 0 10px 20px 10px;
+    font-size: 20px;
+  }
+}
+
+.connected {
+  flex: 1;
+}
+
+.tray {
+  flex: 1;
+}
+
+.ink {
+  flex: 1;
+}

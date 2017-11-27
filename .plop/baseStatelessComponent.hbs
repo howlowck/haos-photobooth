@@ -1,0 +1,16 @@
+import React from 'react'
+import PropTypes from 'prop-types'
+import { classNames } from 'support/helpers'
+import styles from './{{ properCase name}}.scss'
+
+const {{ properCase name }} = ({ className }) => (
+  <div className={classNames([styles.base, className])}>
+    <p>Stateless {{ properCase name }} Component (change me) </p>
+  </div>
+)
+
+{{ properCase name }}.propTypes = {
+  className: PropTypes.string
+}
+
+export default {{ properCase name }}

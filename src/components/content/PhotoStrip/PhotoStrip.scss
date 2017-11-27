@@ -1,0 +1,36 @@
+.base {
+  width: 300px;
+  height: 900px;
+  // border: 1px solid #ebebeb;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+.logo {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.photos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  flex-grow: 1;
+}
+
+.photo {
+  width: 252px;
+  height: 168px;
+  border: 1px solid #ebebeb;
+}
+
+.spinner {
+  font-size: 45px;
+  line-height: 168px;
+  text-align: center;
+  i {
+    margin-top: 65px;
+  }
+}

@@ -1,0 +1,46 @@
+@import '~styles/main.scss';
+
+.base {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(250, 250, 250, 0);
+  z-index: 15;
+}
+
+.message {
+  font-size: 100px;
+  margin-left: 150px;
+  margin-top: 150px;
+  color: gold;
+  text-shadow: 6px 6px 0px rgba(0, 0, 0, 0.4);
+}
+
+.seconds {
+  font-size: 200px;
+  margin-left: 600px;
+  margin-top: 80px;
+}
+
+.seconds {
+  @include animation('pulse1 1s infinite');
+  // animation-fill-mode: forwards;
+}
+
+@include keyframes(pulse1) {
+  0% {
+    color: rgba(gold, 0);
+    text-shadow: 6px 6px 0px rgba(0,0,0,0);
+  }
+  5% {
+    color: rgba(gold, 1);
+    text-shadow: 6px 6px 0px rgba(0,0,0,0.2);
+  }
+  100% {
+    color: rgba(gold, 0);
+    text-shadow: 6px 6px 0px rgba(0,0,0,0);
+  }
+
+}

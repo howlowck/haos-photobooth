@@ -1,0 +1,22 @@
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { classNames } from 'support/helpers'
+import styles from './{{ properCase name}}.scss'
+
+class {{ properCase name}} extends Component {
+  render () {
+    const { className } = this.props
+
+    return (
+      <div className={classNames([styles.base, className])}>
+        Change me ({{ properCase name}})
+      </div>
+    )
+  }
+}
+
+{{ properCase name }}.propTypes = {
+  className: PropTypes.string
+}
+
+export default {{ properCase name}}
