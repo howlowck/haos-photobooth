@@ -9,8 +9,9 @@ class CameraFeed extends Component {
   onSuccessGetMedia (stream) {
     this.stream = stream
     const { videoEl } = this
-    const videoSourceUrl = URL.createObjectURL(stream)
-    videoEl.src = videoSourceUrl
+    // const videoSourceUrl = URL.createObjectURL(stream)
+    // videoEl.src = videoSourceUrl
+    videoEl.srcObject = stream
     videoEl.play()
   }
 

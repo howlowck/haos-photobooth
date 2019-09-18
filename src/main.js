@@ -11,7 +11,7 @@ import initialState from './initialState'
 const MOUNT_NODE = document.getElementById('root')
 const imageInput = MOUNT_NODE.dataset.imageInput
 const faceRec = MOUNT_NODE.dataset.faceRec
-const config = {imageInput, faceRec: +faceRec}
+const config = { imageInput, faceRec: +faceRec }
 
 // Store Initialization
 // ------------------------------------

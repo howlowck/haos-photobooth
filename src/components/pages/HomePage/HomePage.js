@@ -16,7 +16,7 @@ import PrintingOverlay from 'components/content/PrintingOverlay'
 const getStartButton = (sessionStarted, onClick) => {
   if (!sessionStarted) {
     return (<Overlay>
-      <OverlayTitle className='font-fancy'>Nodevember Photobooth</OverlayTitle>
+      <OverlayTitle className='font-fancy'>Dev Crew Photobooth</OverlayTitle>
       <Button className={styles.startButton} size='x-large' onClick={onClick}>Start!</Button>
     </Overlay>)
   }
@@ -36,7 +36,9 @@ class HomePage extends Component {
         </div>
         <div className={styles.strip}>
           <PhotoStrip visible={photoStripVisible} />
-          <Button type='danger' size='large' className={styles.restartButton} onClick={() => location.reload()}>Restart Photobooth</Button>
+          <Button type='danger' size='large' className={styles.restartButton} onClick={() => location.reload()}>
+            Restart Photobooth
+          </Button>
         </div>
       </div>
     )
