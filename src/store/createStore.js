@@ -17,7 +17,7 @@ socket.on('connect', () => {
   console.log('socket connected!!!')
 })
 
-const createStore = (initialState = {}, {imageInput, faceRec}) => {
+const createStore = (initialState = {}, { imageInput, faceRec }) => {
   const epicMiddleware = createEpicMiddleware(rootEpic(imageInput))
 
   // ======================================================

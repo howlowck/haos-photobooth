@@ -1,3 +1,5 @@
+/* globals GLOBAL_ENV */
+
 import React from 'react'
 import ReactDOM from 'react-dom'
 import 'rxjs'
@@ -9,9 +11,11 @@ import initialState from './initialState'
 // Render Setup
 // ------------------------------------
 const MOUNT_NODE = document.getElementById('root')
-const imageInput = MOUNT_NODE.dataset.imageInput
-const faceRec = MOUNT_NODE.dataset.faceRec
+const imageInput = GLOBAL_ENV.INPUT_TYPE
+const faceRec = GLOBAL_ENV.USE_FACE_REC
 const config = { imageInput, faceRec: +faceRec }
+
+console.log('USE_FACE_API!!!!!', GLOBAL_ENV.USE_FACE_REC)
 
 // Store Initialization
 // ------------------------------------

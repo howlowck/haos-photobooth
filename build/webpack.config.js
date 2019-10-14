@@ -1,3 +1,4 @@
+require('dotenv').config()
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -42,12 +43,14 @@ const config = {
       'process.env': { NODE_ENV: JSON.stringify(project.env) },
       __DEV__,
       __TEST__,
-      __PROD__
+      __PROD__,
+      // TODO: need to filter out non-client variables
+      'GLOBAL_ENV': JSON.stringify(process.env)
     }, project.globals))
   ]
 }
 
-// JavaScrip
+// JavaScript
 // ------------------------------------
 config.module.rules.push({
   test: /\.(js|jsx)$/,
@@ -105,21 +108,21 @@ config.module.rules.push({
         loader: 'css-loader',
         options: {
           sourceMap: project.sourcemaps,
-          minimize: {
-            autoprefixer: {
-              add: true,
-              remove: true,
-              browsers: ['last 2 versions']
-            },
-            discardComments: {
-              removeAll: true
-            },
-            discardUnused: false,
-            mergeIdents: false,
-            reduceIdents: false,
-            safe: true,
-            sourcemap: project.sourcemaps
-          },
+          // minimize: {
+          //   autoprefixer: {
+          //     add: true,
+          //     remove: true,
+          //     browsers: ['last 2 versions']
+          //   },
+          //   discardComments: {
+          //     removeAll: true
+          //   },
+          //   discardUnused: false,
+          //   mergeIdents: false,
+          //   reduceIdents: false,
+          //   safe: true,
+          //   sourcemap: project.sourcemaps
+          // },
           modules: true
         }
       },
@@ -210,7 +213,7 @@ if (!__TEST__) {
 if (__PROD__) {
   config.plugins.push(
     new webpack.LoaderOptionsPlugin({
-      minimize: true,
+      // minimize: true,
       debug: false
     }),
     new webpack.optimize.UglifyJsPlugin({

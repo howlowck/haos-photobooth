@@ -1,19 +1,28 @@
 require('dotenv').config()
+const {
+  APP_PORT,
+  INPUT_TYPE = 'webcam',
+  PHOTO_PORT,
+  USE_FACE_REC = 0,
+  FACEAPI_KEY,
+  FACEAPI_ENDPOINT,
+  FACEAPI_GROUP
+} = process.env
 const logger = require('../lib/logger')
 const app = require('../../server/main')
+const photoApp = require('../../server/photo')
 const Printer = require('./Printer')
 const path = require('path')
 const fs = require('fs')
 const pdf = require('html-pdf')
-const server = require('http').createServer(app)
-const io = require('socket.io')(server)
+const appServer = require('http').createServer(app)
+const photoServer = require('http').createServer(photoApp)
+const io = require('socket.io')(appServer)
 const chokidar = require('chokidar')
 const FaceApiClient = require('./FaceApiClient')
 const cheerio = require('cheerio')
 
 const printer = new Printer('http://192.168.1.56:631')
-
-const {FACEAPI_KEY, FACEAPI_ENDPOINT, FACEAPI_GROUP} = process.env
 
 const faceApiClient = new FaceApiClient(FACEAPI_ENDPOINT, FACEAPI_KEY, FACEAPI_GROUP)
 
@@ -30,7 +39,9 @@ function exportToJpeg (path) {
   })
 }
 
-const watcher = chokidar.watch('../../Pictures/Photobooth/*.JPG', {
+let watchPath = INPUT_TYPE === 'webcam' ? './image_captures/*.JPG' : '../../Pictures/Photobooth/*.JPG'
+
+const watcher = chokidar.watch(watchPath, {
   ignoreInitial: true,
   awaitWriteFinish: true
 })
@@ -92,7 +103,7 @@ watcher.on('add', (path) => {
 
   readStream.on('end', () => {
     ioSocket.emit('action', { type: 'message', data: { name: 'client/newPhoto', payload: { photoName } } })
-    if (photoName === 'photo1.JPG') {
+    if (photoName === 'photo1.JPG' && +USE_FACE_REC) {
       faceApiClient.identify(`./public/photos/${photoName}`)
         .then(data => data
           .map(face => face.candidates[0])
@@ -159,6 +170,12 @@ io.on('connection', (socket) => {
 })
 
 logger.info('Starting server...')
-server.listen(3000, () => {
-  logger.success('Server is running at http://localhost:3000')
+const appPort = APP_PORT || 3000
+appServer.listen(appPort, () => {
+  logger.success(`App Server is running at http://localhost:${appPort}`)
+})
+
+const photoPort = PHOTO_PORT || 3001
+photoServer.listen(photoPort, () => {
+  logger.success(`Photo Server is running on http://localhost:${photoPort}`)
 })

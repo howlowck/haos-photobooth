@@ -41,11 +41,12 @@ class FaceApiClient {
   }
 
   getPersonsInfo (personIds) { // personIds: string[]
-    const promiseArray = personIds.map(personId => fetch(`${this.endpoint}/persongroups/${this.group}/persons/${personId}`, {
-      headers: {
-        'Ocp-Apim-Subscription-Key': this.key
-      }
-    }).then(res => res.json()))
+    const promiseArray = personIds.map(personId =>
+      fetch(`${this.endpoint}/persongroups/${this.group}/persons/${personId}`, {
+        headers: {
+          'Ocp-Apim-Subscription-Key': this.key
+        }
+      }).then(res => res.json()))
     return Promise.all(promiseArray)
   }
 }

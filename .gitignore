@@ -7,6 +7,7 @@ coverage
 .yarn-cache
 public/photos/*.JPG
 public/printouts/*.jpg
+image_captures/*.jpg
 .env
 logo.jpg
 logo-wedding.jpg

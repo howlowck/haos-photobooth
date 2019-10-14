@@ -29,7 +29,7 @@ class CameraFeed extends Component {
   }
 
   render () {
-    const { className, enabled, width, height } = this.props
+    const { className, enabled, width, height, elId = 'photo-video-el' } = this.props
 
     if (!enabled) {
       this.endStream()
@@ -39,6 +39,7 @@ class CameraFeed extends Component {
     return (
       <div className={classNames([styles.base, className])}>
         <video
+          id={elId}
           className={styles.video}
           ref={(video) => { this.videoEl = video }}
           width={width}
@@ -51,6 +52,7 @@ class CameraFeed extends Component {
 }
 
 CameraFeed.propTypes = {
+  elId: PropTypes.string,
   className: PropTypes.string,
   enabled: PropTypes.bool,
   width: PropTypes.string,
