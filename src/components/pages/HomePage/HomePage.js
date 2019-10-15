@@ -32,7 +32,7 @@ class HomePage extends Component {
         <PrintingOverlay />
         <div className={styles.cameraFeed}>
           <CountdownOverlay className={styles.cameraFeedPosition} />
-          <CameraFeed enabled width='1333' height='1000' className={styles.cameraFeedPosition} elId='video-element' />
+          <CameraFeed enabled width='1920' height='1440' className={styles.cameraFeedPosition} elId='video-element' />
         </div>
         <div className={styles.strip}>
           <PhotoStrip visible={photoStripVisible} />
