@@ -29,7 +29,7 @@
     "express-fileupload": "^1.1.6-alpha.5",
     "html-pdf": "^2.2.0",
     "ipp": "^1.1.0",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.19",
     "node-fetch": "^1.7.3",
     "object-assign": "^4.1.1",
     "promise": "^7.1.1",
