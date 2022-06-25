@@ -30,7 +30,7 @@
     "html-pdf": "^2.2.0",
     "ipp": "^1.1.0",
     "lodash": "^4.17.4",
-    "node-fetch": "^1.7.3",
+    "node-fetch": "^2.6.7",
     "object-assign": "^4.1.1",
     "promise": "^7.1.1",
     "prop-types": "^15.5.10",
